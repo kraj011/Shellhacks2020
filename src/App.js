@@ -70,10 +70,10 @@ const App = () => {
 	const ColorButton = withStyles((theme) => ({
 		root: {
 			color: theme.palette.getContrastText(blue[500]),
+			textTransform: "none",
 			backgroundColor: blue[500],
 			'&:hover': {
 			backgroundColor: blue[700],
-			textTransform: "none"
 			},
 		},
 	}))(Button);
@@ -85,11 +85,11 @@ const App = () => {
 			<header className="App-header">
 				{user.screen_name ? (
 					<div>
-						<h1>Welcome back, {user.screen_name}</h1>
+						<h1 className="App-welcome">Welcome back, <span style={{color:"#61dafb"}}>{user.screen_name}</span></h1>
 						{userInfo.profile_image_url ? (
 							<div>
-								<img
-									src={userInfo.profile_image_url}
+								<img style={{height:"200px"}}
+									src={userInfo.profile_image_url.replace("_normal", "_400x400")}
 									alt="Profile image."
 								/>
 								<br />
@@ -119,7 +119,7 @@ const App = () => {
 							consumerSecret={
 								"48Lo2VyTW0PuCaQFExubtKRi7UmfA1O8798dGZuRbg31oMyCxm"
 							}
-							callbackUrl={"https://empatweet.tech/"}
+							callbackUrl={"http://localhost:3000/"}
 						/>
 					</div>
 				)}

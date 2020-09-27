@@ -4,7 +4,7 @@ import "./styles.css";
 
 export default () => (
   <Popup
-    trigger={<button className="button"> How are you today? </button>}
+    trigger={<a className="button4"> How are you feeling today? </a>}
     modal
     nested
   >
