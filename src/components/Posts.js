@@ -96,19 +96,21 @@ function Posts({ posts }) {
 		<div style={{ marginTop: 20, padding: 30 }}>
 			<PopUp />
 
-			<h2 style={{marginBottom:"-3vmin"}}>Your recent <span style={{ color: "#00acee" }}>Tweets</span>:</h2>
+			<h2 style={{ marginBottom: "-3vmin" }}>
+				Your recent <span style={{ color: "#00acee" }}>Tweets</span>:
+			</h2>
 			{posts.length === 0 ? (
-				<CircularProgress color="secondary" />
+				<CircularProgress color="secondary" style={{ marginTop: 40 }} />
 			) : (
 				<Grid
 					container
 					spacing={10}
 					justify="center"
-					style={{marginTop:"2vmin"}}
+					style={{ marginTop: "2vmin" }}
 				>
 					{posts.map((post) => (
 						<Grid item key={post.text}>
-							<Card > 
+							<Card>
 								<CardActionArea disabled>
 									{/* <CardMedia
 									component="img"
@@ -125,7 +127,10 @@ function Posts({ posts }) {
 										>
 											{post.text}
 										</Typography>
-										<Typography style={{fontSize:"3vmin"}} component="p">
+										<Typography
+											style={{ fontSize: "3vmin" }}
+											component="p"
+										>
 											{emojiForSentiment(post.sentiment)}
 										</Typography>
 									</CardContent>
