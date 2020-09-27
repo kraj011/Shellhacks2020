@@ -65,6 +65,17 @@ const App = () => {
 		localStorage.setItem("user", JSON.stringify(data));
 	};
 
+	const ColorButton = withStyles((theme) => ({
+		root: {
+			color: theme.palette.getContrastText(white[500]),
+			backgroundColor: white[500],
+			'&:hover': {
+			backgroundColor: white[700],
+			textTransform: "none"
+			},
+		},
+	}))(Button);
+
 	return (
 		<div className="App">
 			<DocumentMeta {...meta} />
@@ -80,17 +91,15 @@ const App = () => {
 									alt="Profile image."
 								/>
 								<br />
-								<Button
+								<ColorButton
 									variant="contained"
-									color="white"
-									textTransform="none"
 									onClick={() => {
 										localStorage.removeItem("user");
 										window.location.reload();
 									}}
 								>
 									Logout
-								</Button>
+								</ColorButton>
 
 								<Posts posts={posts} />
 							</div>
