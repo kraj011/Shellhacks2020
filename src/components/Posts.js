@@ -12,88 +12,136 @@ import "./styles.css";
 //import { posts } from "./dummy-posts";
 import PopUp from "./Popup";
 
-function Posts(props) {
-  const posts = [
-    {
-      title: "My first post",
-      excerpt: "This is my first post with more content inside",
-      //image: "https://bit.ly/2WNi2Ml",
-    },
+function Posts({ posts }) {
+	// const posts = [
+	// 	{
+	// 		title: "My first post",
+	// 		excerpt: "This is my first post with more content inside",
+	// 		//image: "https://bit.ly/2WNi2Ml",
+	// 	},
 
-    {
-      title: "My second post",
-      excerpt: "This is my second post with more content inside",
-      image: "https://bit.ly/2WNi2Ml",
-    },
+	// 	{
+	// 		title: "My second post",
+	// 		excerpt: "This is my second post with more content inside",
+	// 		image: "https://bit.ly/2WNi2Ml",
+	// 	},
 
-    {
-      title: "My third post",
-      excerpt: "This is my third post with more content inside",
-      image: "https://bit.ly/2WNi2Ml",
-    },
+	// 	{
+	// 		title: "My third post",
+	// 		excerpt: "This is my third post with more content inside",
+	// 		image: "https://bit.ly/2WNi2Ml",
+	// 	},
 
-    {
-      title: "My fourth post",
-      excerpt: "This is my fourth post with more content inside",
-      image: "https://bit.ly/2WNi2Ml",
-    },
+	// 	{
+	// 		title: "My fourth post",
+	// 		excerpt: "This is my fourth post with more content inside",
+	// 		image: "https://bit.ly/2WNi2Ml",
+	// 	},
 
-    {
-      title: "My fifth post",
-      excerpt: "This is my fifth post with more content inside",
-      image: "https://bit.ly/2WNi2Ml",
-    },
+	// 	{
+	// 		title: "My fifth post",
+	// 		excerpt: "This is my fifth post with more content inside",
+	// 		image: "https://bit.ly/2WNi2Ml",
+	// 	},
 
-    {
-      title: "My sixth post",
-      excerpt: "This is my sixth post with more content inside",
-      image: "https://bit.ly/2WNi2Ml",
-    },
-  ];
+	// 	{
+	// 		title: "My sixth post",
+	// 		excerpt: "This is my sixth post with more content inside",
+	// 		image: "https://bit.ly/2WNi2Ml",
+	// 	},
+	// ];
 
-  const [showPopup, setPopupState] = useState({});
+	const [showPopup, setPopupState] = useState({});
 
-  useEffect(() => {
-    setPopupState(true);
-  }, []);
+	useEffect(() => {
+		setPopupState(true);
+	}, []);
 
-  return (
-    <div style={{ marginTop: 20, padding: 30 }}>
-      <PopUp />
+	const emojiForSentiment = (sentiment) => {
+		switch (sentiment[0]) {
+			case "sad":
+				if (sentiment[1] >= 0.9) {
+					return "😭";
+				} else {
+					return "😢";
+				}
 
-      <Grid container spacing={40} justify="center">
-        {posts.map((post) => (
-          <Grid item key={post.title}>
-            <Card>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  //alt="Contemplative Reptile"
-                  height="140"
-                  image={post.image}
-                  //title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {post.title}
-                  </Typography>
-                  <Typography component="p">{post.excerpt}</Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  Share
-                </Button>
-                <Button size="small" color="primary">
-                  Learn More
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </div>
-  );
+			case "joy":
+				if (sentiment[1] >= 0.9) {
+					return "😁";
+				} else {
+					return "😀";
+				}
+
+			case "anger":
+				if (sentiment[1] >= 0.9) {
+					return "😡";
+				} else {
+					return "😠";
+				}
+
+			case "fear":
+				if (sentiment[1] >= 0.9) {
+					return "😖";
+				} else {
+					return "😫";
+				}
+
+			default:
+				return "😮";
+		}
+	};
+
+	return (
+		<div style={{ marginTop: 20, padding: 30 }}>
+			<PopUp />
+
+			<h2 style={{ color: "#00acee" }}>Your recent tweets:</h2>
+			<Grid
+				container
+				spacing={10}
+				justify="center"
+				style={{ marginTop: 40 }}
+			>
+				{posts.map((post) => (
+					<Grid item key={post.text}>
+						<Card>
+							<CardActionArea>
+								{/* <CardMedia
+									component="img"
+									//alt="Contemplative Reptile"
+									height="140"
+									image={post.image}
+									//title="Contemplative Reptile"
+								/> */}
+								<CardContent>
+									<Typography
+										gutterBottom
+										variant="h5"
+										component="h2"
+									>
+										{post.text}
+									</Typography>
+									<Typography component="p">
+										Overall sentiment:{" "}
+										{emojiForSentiment(post.sentiment)}
+									</Typography>
+								</CardContent>
+							</CardActionArea>
+							{/* <CardActions>
+								<Button size="small" color="primary">
+									Share
+								</Button>
+								<Button size="small" color="primary">
+									Learn More
+								</Button>
+							</CardActions> */}
+						</Card>
+					</Grid>
+				))}
+			</Grid>
+		</div>
+	);
 }
 
 export default Posts;
