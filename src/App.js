@@ -121,7 +121,7 @@ const App = () => {
 							consumerSecret={
 								"48Lo2VyTW0PuCaQFExubtKRi7UmfA1O8798dGZuRbg31oMyCxm"
 							}
-							callbackUrl={"http://localhost:3000/"}
+							callbackUrl={"https://empatweet.tech/"}
 						/>
 					</div>
 				)}
