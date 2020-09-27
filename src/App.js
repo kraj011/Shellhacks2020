@@ -3,6 +3,8 @@ import "./App.css";
 import TwitterLogin from "react-twitter-login";
 import Posts from "./components/Posts";
 import DocumentMeta from "react-document-meta";
+import { Button } from "@material-ui/core";
+
 const App = () => {
 	const meta = {
 		title: "EmpaTweet",
@@ -77,6 +79,17 @@ const App = () => {
 									src={userInfo.profile_image_url}
 									alt="this is car image"
 								/>
+								<br />
+								<Button
+									variant="contained"
+									onClick={() => {
+										localStorage.removeItem("user");
+										window.location.reload();
+									}}
+								>
+									Logout
+								</Button>
+
 								<Posts posts={posts} />
 							</div>
 						) : null}
