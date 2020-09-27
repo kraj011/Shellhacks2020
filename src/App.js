@@ -4,6 +4,8 @@ import TwitterLogin from "react-twitter-login";
 import Posts from "./components/Posts";
 import DocumentMeta from "react-document-meta";
 import { Button } from "@material-ui/core";
+import { blue } from '@material-ui/core/colors';
+import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
 const App = () => {
 	const meta = {
@@ -67,10 +69,10 @@ const App = () => {
 
 	const ColorButton = withStyles((theme) => ({
 		root: {
-			color: theme.palette.getContrastText(white[500]),
-			backgroundColor: white[500],
+			color: theme.palette.getContrastText(blue[500]),
+			backgroundColor: blue[500],
 			'&:hover': {
-			backgroundColor: white[700],
+			backgroundColor: blue[700],
 			textTransform: "none"
 			},
 		},
@@ -107,9 +109,9 @@ const App = () => {
 					</div>
 				) : (
 					<div>
-						<h1>
-							Welcome to Empatweet! Please sign in with twitter to
-							get started!
+						<h1 className="App-welcome">
+							Welcome to <span style={{color:"#61dafb"}}>EmpaTweet</span>! <br></br>
+							Please sign in with Twitter to get started.
 						</h1>
 						<TwitterLogin
 							authCallback={authHandler}
