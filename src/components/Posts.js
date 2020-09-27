@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, CircularProgress } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -66,21 +66,21 @@ function Posts({ posts }) {
 					return "😢";
 				}
 
-			case "joy":
+			case "happy":
 				if (sentiment[1] >= 0.9) {
 					return "😁";
 				} else {
 					return "😀";
 				}
 
-			case "anger":
+			case "angry":
 				if (sentiment[1] >= 0.9) {
 					return "😡";
 				} else {
 					return "😠";
 				}
 
-			case "fear":
+			case "scared":
 				if (sentiment[1] >= 0.9) {
 					return "😖";
 				} else {
@@ -97,38 +97,41 @@ function Posts({ posts }) {
 			<PopUp />
 
 			<h2 style={{ color: "#00acee" }}>Your recent tweets:</h2>
-			<Grid
-				container
-				spacing={10}
-				justify="center"
-				style={{ marginTop: 40 }}
-			>
-				{posts.map((post) => (
-					<Grid item key={post.text}>
-						<Card>
-							<CardActionArea>
-								{/* <CardMedia
+			{posts.length === 0 ? (
+				<CircularProgress color="secondary" />
+			) : (
+				<Grid
+					container
+					spacing={10}
+					justify="center"
+					style={{ marginTop: 40 }}
+				>
+					{posts.map((post) => (
+						<Grid item key={post.text}>
+							<Card>
+								<CardActionArea>
+									{/* <CardMedia
 									component="img"
 									//alt="Contemplative Reptile"
 									height="140"
 									image={post.image}
 									//title="Contemplative Reptile"
 								/> */}
-								<CardContent>
-									<Typography
-										gutterBottom
-										variant="h5"
-										component="h2"
-									>
-										{post.text}
-									</Typography>
-									<Typography component="p">
-										Overall sentiment:{" "}
-										{emojiForSentiment(post.sentiment)}
-									</Typography>
-								</CardContent>
-							</CardActionArea>
-							{/* <CardActions>
+									<CardContent>
+										<Typography
+											gutterBottom
+											variant="h5"
+											component="h2"
+										>
+											{post.text}
+										</Typography>
+										<Typography component="p">
+											Overall sentiment:{" "}
+											{emojiForSentiment(post.sentiment)}
+										</Typography>
+									</CardContent>
+								</CardActionArea>
+								{/* <CardActions>
 								<Button size="small" color="primary">
 									Share
 								</Button>
@@ -136,10 +139,11 @@ function Posts({ posts }) {
 									Learn More
 								</Button>
 							</CardActions> */}
-						</Card>
-					</Grid>
-				))}
-			</Grid>
+							</Card>
+						</Grid>
+					))}
+				</Grid>
+			)}
 		</div>
 	);
 }
