@@ -7,7 +7,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #2196f3;
 }
 .popup\_inner {
   position: absolute;
@@ -21,29 +21,29 @@
 }
 .modal {
   font-size: 12px;
-  background-color: #00acee;
+  background-color: #2196f3;
   padding: 10;
 }
 .modal > .header {
   width: 100%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid white;
   font-size: 18px;
   text-align: center;
   padding: 5px;
-  background-color: #00acee;
+  background-color:  #2196f3;
 }
 .modal > .content {
   width: 100%;
   text-align: center;
   padding: 10px 5px;
-  background-color: #00acee;
+  background-color: #2196f3;
 }
 .modal > .actions {
   width: 100%;
   padding: 10px 5px;
   margin: auto;
   text-align: center;
-  background-color: #00acee;
+  background-color: #2196f3;
 }
 .modal > .actions > .why {
   background-color: antiquewhite;
@@ -60,4 +60,17 @@
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #cfcece;
+}
+
+.va {
+  background-color: #1976d2;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 2px 4px;
+  cursor:pointer;
+  color: white;
 }

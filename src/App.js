@@ -72,9 +72,10 @@ const App = () => {
 			color: theme.palette.getContrastText(blue[500]),
 			textTransform: "none",
 			backgroundColor: blue[500],
+			fontSize: "2vmin",
 			'&:hover': {
 			backgroundColor: blue[700],
-			},
+			}
 		},
 	}))(Button);
 
@@ -85,15 +86,16 @@ const App = () => {
 			<header className="App-header">
 				{user.screen_name ? (
 					<div>
-						<h1 className="App-welcome">Welcome back, <span style={{color:"#61dafb"}}>{user.screen_name}</span></h1>
+						<h1 className="App-welcome">Welcome back, <span style={{color:"#00ACEE"}}>{user.screen_name}</span></h1>
 						{userInfo.profile_image_url ? (
 							<div>
-								<img style={{height:"200px"}}
+								<img style={{height:"150px"}}
 									src={userInfo.profile_image_url.replace("_normal", "_400x400")}
 									alt="Profile image."
 								/>
 								<br />
-								<ColorButton
+								<div style={{marginTop:"20px"}}></div>
+								<ColorButton 
 									variant="contained"
 									onClick={() => {
 										localStorage.removeItem("user");
@@ -110,7 +112,7 @@ const App = () => {
 				) : (
 					<div>
 						<h1 className="App-welcome">
-							Welcome to <span style={{color:"#61dafb"}}>EmpaTweet</span>! <br></br>
+							Welcome to <span style={{color:"#00ACEE"}}>EmpaTweet</span>! <br></br>
 							Please sign in with Twitter to get started.
 						</h1>
 						<TwitterLogin
