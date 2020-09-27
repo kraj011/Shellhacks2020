@@ -2,7 +2,19 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import TwitterLogin from "react-twitter-login";
 import Posts from "./components/Posts";
+import DocumentMeta from "react-document-meta";
 const App = () => {
+	const meta = {
+		title: "EmpaTweet",
+		description: "Track your mental health through your twitter posts!",
+		meta: {
+			charset: "utf-8",
+			name: {
+				keywords: "twitter,health",
+			},
+		},
+	};
+
 	const [user, setUser] = useState({});
 	const [userInfo, setUserInfo] = useState({});
 	const [posts, setPosts] = useState([]);
@@ -53,6 +65,8 @@ const App = () => {
 
 	return (
 		<div className="App">
+			<DocumentMeta {...meta} />
+
 			<header className="App-header">
 				{user.screen_name ? (
 					<div>
@@ -79,7 +93,7 @@ const App = () => {
 							consumerSecret={
 								"48Lo2VyTW0PuCaQFExubtKRi7UmfA1O8798dGZuRbg31oMyCxm"
 							}
-							callbackUrl={"http://localhost:3000/"}
+							callbackUrl={"http://empatweet.tech/"}
 						/>
 					</div>
 				)}
