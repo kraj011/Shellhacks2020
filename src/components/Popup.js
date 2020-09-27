@@ -21,13 +21,14 @@ export default () => (
         <div className="actions">
           <Popup
             trigger={<button className="button"> Why? </button>}
-            position="top center"
+            position="bottom center"
             nested
           >
             <div className="content">
-              {" "}
-              To promote #HealthyConversation, you need to be at your best, so
-              we want make sure you're alright
+              <p style={{ color: "white" }}>
+                To promote #HealthyConversation, you need to be at your best, so
+                we want make sure you're alright
+              </p>
             </div>
           </Popup>
           <button
