@@ -21,7 +21,7 @@
 }
 .modal {
   font-size: 12px;
-  background-color: #61dafb;
+  background-color: #00acee;
   padding: 10;
 }
 .modal > .header {
@@ -30,20 +30,20 @@
   font-size: 18px;
   text-align: center;
   padding: 5px;
-  background-color: #61dafb;
+  background-color: #00acee;
 }
 .modal > .content {
   width: 100%;
   text-align: center;
   padding: 10px 5px;
-  background-color: #61dafb;
+  background-color: #00acee;
 }
 .modal > .actions {
   width: 100%;
   padding: 10px 5px;
   margin: auto;
   text-align: center;
-  background-color: #61dafb;
+  background-color: #00acee;
 }
 .modal > .actions > .why {
   background-color: antiquewhite;
