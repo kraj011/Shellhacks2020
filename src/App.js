@@ -8,11 +8,11 @@ import { Button } from "@material-ui/core";
 const App = () => {
 	const meta = {
 		title: "EmpaTweet",
-		description: "Track your mental health through your twitter posts!",
+		description: "Start a conversations about how you're feeling!",
 		meta: {
 			charset: "utf-8",
 			name: {
-				keywords: "twitter,health",
+				keywords: "twitter, health, sentiment analysis, conversations",
 			},
 		},
 	};
@@ -77,11 +77,13 @@ const App = () => {
 							<div>
 								<img
 									src={userInfo.profile_image_url}
-									alt="this is car image"
+									alt="Profile image."
 								/>
 								<br />
 								<Button
 									variant="contained"
+									color="white"
+									textTransform="none"
 									onClick={() => {
 										localStorage.removeItem("user");
 										window.location.reload();
