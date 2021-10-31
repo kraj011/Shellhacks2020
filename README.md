@@ -1,3 +1,3 @@
-This is our project for ShellHacks2020: EmpaTweet!
+EmpaTweet is our project for the ShellHacks 2020.
 
 Read more about it [here](https://devpost.com/software/empatweet).
